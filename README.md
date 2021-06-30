@@ -35,8 +35,8 @@ Routes
 > app.Route("/check-in-out")
 
 Models
-> 		familyMembers: [],
->	familyMember: {
+> 		{familyMembers: [],
+		familyMember: {
 		name: {
 		type: String,
 		unique: true,}
