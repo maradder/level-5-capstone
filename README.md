@@ -26,6 +26,6 @@ Components
    
 Context
 * State for each family member.
-- Populated from the initial GET request and updated by subsequent PUT request response messages.
+        - Populated from the initial GET request and updated by subsequent PUT request response messages.
 
 ### Back-End
