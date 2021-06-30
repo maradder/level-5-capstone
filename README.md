@@ -6,7 +6,6 @@ Families with kids need a simple way to let each other know where everybody is a
 
 
 ## Mind-Map
-Mind Map, What is the structure of your backend and front app going to look like? What routes, models, components, actions, and reducers will I need?
 
 
 ### Front-End
@@ -19,7 +18,7 @@ Actions
 Components
 * Avatar: Used to represent the family members and the home location.
 * Button: Used to navigate through the app and select the who and where options.
-* Range Slider: Used to input the expected return time.
+* Range Slider: Used to input the ERT.
 * "Clock Face": Used to display the current status of the family members.
 * Badge: Used to display how many people are currently at home.
 * Section Banner: Displays a daily greeting on the clock section and give the user instruction on the input sections.
@@ -27,5 +26,8 @@ Components
 Context
 * State for each family member.
     1. Populated from the initial GET request and updated by subsequent PUT request response messages.
+    2. ERT is calculated when the family member leaves the house (time of request + expected duration of trip)
 
 ### Back-End
+Mind Map, What is the structure of your backend and front app going to look like? What routes, models, components, actions, and reducers will I need?
+
