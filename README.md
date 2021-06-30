@@ -32,12 +32,14 @@ Families with kids need a simple way to let each other know where everybody is a
 
 #### Server
 Routes
-> "/familyclock"
+> app.Route("/check-in-out")
 
-Model
+Models
 > 		familyMembers: [],
 >	familyMember: {
-		name: String,
+		name: {
+		type: String,
+		unique: true,}
 		atHome: Boolean,
 		estReturnTime: Number,
 		location: String,
