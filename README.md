@@ -42,7 +42,7 @@ Models
 >		unique: true,}
 >		atHome: Boolean,
 >		estReturnTime: Number,
->		location: String,
+>		location: String
 >	},
-
+>
 
