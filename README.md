@@ -36,7 +36,7 @@ Routes
 
 Model
 > 		familyMembers: [],
-	familyMember: {
+>	familyMember: {
 		name: String,
 		atHome: Boolean,
 		estReturnTime: Number,
