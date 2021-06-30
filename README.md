@@ -36,14 +36,13 @@ Routes
 
 Models
 > 		{familyMembers: [],
-		familyMember: {
-		name: {
-		type: String,
-		unique: true,}
-		atHome: Boolean,
-		estReturnTime: Number,
-		location: String,
-	},
+>		familyMember: {
+>		name: {
+>		type: String,
+>		unique: true,}
+>		atHome: Boolean,
+>		estReturnTime: Number,
+>		location: String,
+>	},
 
-Mind Map, What is the structure of your backend and front app going to look like? What routes, models, components, actions, and reducers will I need?
 
