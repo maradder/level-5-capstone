@@ -11,21 +11,21 @@ Mind Map, What is the structure of your backend and front app going to look like
 
 ### Front-End
   Actions
-    - "Heading out":  PUT request to update the database object with the names, destination, and expected return time (ERT) of the people leaving the house
-    - "Check In": PUT request to update the database object with the names, destination, and expected return time of the people returning to the house
-    - "Add family member": PUT request to add family member to the database object
-    - "Remove family member": PUT request to remove family member to the database object
+    * "Heading out":  PUT request to update the database object with the names, destination, and expected return time (ERT) of the people leaving the house
+    * "Check In": PUT request to update the database object with the names, destination, and expected return time of the people returning to the house
+    * "Add family member": PUT request to add family member to the database object
+    * "Remove family member": PUT request to remove family member to the database object
     
    Components
-    - Avatar: Used to represent the family members and the home location
-    - Button: Used to navigate through the app and select the who and where options
-    - Range Slider: Used to input the expected return time
-    - "Clock Face": Used to display the current status of the family members
-    - Badge: Used to display how many people are currently at home
-    - Section Banner: Displays a daily greeting on the clock section and give the user instruction on the input sections
+    * Avatar: Used to represent the family members and the home location
+    * Button: Used to navigate through the app and select the who and where options
+    * Range Slider: Used to input the expected return time
+    * "Clock Face": Used to display the current status of the family members
+    * Badge: Used to display how many people are currently at home
+    * Section Banner: Displays a daily greeting on the clock section and give the user instruction on the input sections
    
   Context
-    - State for each family member
-      -- Populated from the initial GET request and updated by subsequent PUT request response messages
+    * State for each family member
+      ** Populated from the initial GET request and updated by subsequent PUT request response messages
 
 ### Back-End
