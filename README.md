@@ -31,7 +31,8 @@ Families with kids need a simple way to let each other know where everybody is a
 ### Back-End
 
 #### Server
-Routes
+Routes:
+    "/family_members"
 
 Mind Map, What is the structure of your backend and front app going to look like? What routes, models, components, actions, and reducers will I need?
 
