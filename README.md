@@ -9,13 +9,13 @@ Families with kids need a simple way to let each other know where everybody is a
 
 
 ### Front-End
-Actions
+#### Actions
 * "Heading out":  PUT request to update the database object with the names, destination, and expected return time (ERT) of the people leaving the house.
 * "Check In": PUT request to update the database object with the names, destination, and expected return time of the people returning to the house.
 * "Add family member": PUT request to add family member to the database object.
 * "Remove family member": PUT request to remove family member to the database object.
     
-Components
+#### Components
 * Avatar: Used to represent the family members and the home location.
 * Button: Used to navigate through the app and select the who and where options.
 * Range Slider: Used to input the ERT.
@@ -23,11 +23,16 @@ Components
 * Badge: Used to display how many people are currently at home.
 * Section Banner: Displays a daily greeting on the clock section and give the user instruction on the input sections.
    
-Context
+#### Context
 * State for each family member.
     1. Populated from the initial GET request and updated by subsequent PUT request response messages.
     2. ERT is calculated when the family member leaves the house (time of request + expected duration of trip)
 
 ### Back-End
+
+#### Server
+
+    Routes
+
 Mind Map, What is the structure of your backend and front app going to look like? What routes, models, components, actions, and reducers will I need?
 
