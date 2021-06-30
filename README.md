@@ -32,7 +32,16 @@ Families with kids need a simple way to let each other know where everybody is a
 
 #### Server
 Routes
-> "/family_members"
+> "/familyclock"
+
+Model
+> 		familyMembers: [],
+	familyMember: {
+		name: String,
+		atHome: Boolean,
+		estReturnTime: Number,
+		location: String,
+	},
 
 Mind Map, What is the structure of your backend and front app going to look like? What routes, models, components, actions, and reducers will I need?
 
