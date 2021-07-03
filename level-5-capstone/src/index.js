@@ -1,12 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import {FamilyContextProvider} from './family-context'
+import React from "react"
+import ReactDOM from "react-dom"
+import App from "./App"
+import { PersonContextProvider } from "./context/PersonContext"
 
 ReactDOM.render(
-  <FamilyContextProvider>
-    <App />
-  </FamilyContextProvider>,
-  document.getElementById('root')
-);
-
+	<PersonContextProvider>
+		<App />
+	</PersonContextProvider>,
+	document.getElementById("root")
+)

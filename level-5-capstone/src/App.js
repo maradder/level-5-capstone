@@ -1,38 +1,22 @@
-import React, { Component, useState, setState } from "react";
-import PersonList from "./PersonList";
-import { FamilyContext } from "./family-context";
-import useToggle from "./going-toggle-button";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react"
+import { PersonContext } from "./context/PersonContext"
+import Button from "./components/Button"
+import ButtonSmall from "./components/ButtonSmall"
+import ActionButton from "./components/ActionButton"
+import ClockBody from "./components/clockFace/ClockBody"
+import { clockRadius, avatarDiameter } from "./StyledComponents"
+import StatusScreen from "./StatusScreen"
+import WhoIsGoing from "./WhoIsGoing"
+import WhereGoing from "./WhereGoing"
 
 const App = () => {
-  const { value, toggle } = useToggle();
-  const { isDay, setIsDay } = useState(true);
-  const { greeting, setGreeting } = useState(
-    isDay === true ? "Good Day" : "Good Night"
-  );
+	return (
+		<div style={{ display: "flex", flexDirection: "row" }}>
+			<StatusScreen />
+			<WhoIsGoing />
+			<WhereGoing />
+		</div>
+	)
+}
 
-  return (
-    <div>
-      <Router>
-        <ul>
-          <Link to="/people">Who</Link>
-          <Link to="/places">Where</Link>
-          <Link to="/time">When</Link>
-        </ul>
-        <Switch>
-          <Route path="/people">
-            <PersonList className="people" />
-          </Route>
-          <Route path="/places">
-            <div className="places" />
-          </Route>
-          <Route path="/time">
-            <div className="time" />
-          </Route>
-        </Switch>
-      </Router>
-    </div>
-  );
-};
-
-export default App;
+export default App
