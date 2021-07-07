@@ -217,6 +217,7 @@ const ButtonAlt = styled(ButtonBase)`
 `
 
 const ButtonAction = styled(ButtonBase)`
+	transition: all 0.3s;
 	width: 160px;
 	min-width: 120px;
 	height: 41px;
@@ -232,6 +233,12 @@ const ButtonAction = styled(ButtonBase)`
 	img {
 		fill: #f00;
 		margin: auto 8px;
+	}
+
+	:hover {
+		transition: 3s;
+		background: radial-gradient(#9be15d 0%, #00e3ae 100%);
+		box-shadow: 3px 4px 5px #ffe478;
 	}
 `
 //  Buttons
