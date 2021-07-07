@@ -1,16 +1,16 @@
 import React, { useContext } from "react"
 import { Main } from "./StyledComponents"
-import WhoIsGoingForm from "./components/forms/WhoIsGoingForm"
-import ButtonSmall from "./components/buttons/ButtonSmall"
+import CheckInForm from "./components/forms/CheckInForm"
+import ActionButton from "./components/buttons/ActionButton"
 import { DisplayContext } from "./context/DisplayContext"
+import ButtonSmall from "./components/buttons/ButtonSmall"
 
-const WhoIsGoing = props => {
+const WhoIsCheckingIn = props => {
 	const { setFormState } = useContext(DisplayContext)
-
 	return (
 		<Main>
-			<h3>Select everyone who will be going</h3>
-			<WhoIsGoingForm id="whoIsGoingForm" />
+			<h3>Select everyone who is checking in</h3>
+			<CheckInForm id="checkInForm" />
 			<div
 				style={{
 					display: "flex",
@@ -20,14 +20,18 @@ const WhoIsGoing = props => {
 				}}
 			>
 				<ButtonSmall
-					label="Back"
+					label="Home"
 					type="button"
 					onClick={() => setFormState("status")}
 				/>
-				<ButtonSmall label="Next" form="whoIsGoingForm" type="submit" />
+				<ActionButton
+					type="submit"
+					label="Check In"
+					form="checkInForm"
+				/>
 			</div>
 		</Main>
 	)
 }
 
-export default WhoIsGoing
+export default WhoIsCheckingIn

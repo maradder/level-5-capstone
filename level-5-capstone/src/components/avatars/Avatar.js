@@ -1,14 +1,14 @@
-import React, { useState } from "react"
+import React from "react"
 import {
 	AvatarBase,
 	AvatarHome,
+	AvatarHomeContainer,
 	avatarDiameter,
 	clockRadius,
-} from "../StyledComponents"
-import styled, { keyframes } from "styled-components"
+} from "../../StyledComponents"
+import { keyframes } from "styled-components"
 
 const Avatar = props => {
-	const adjert = props.beback
 	const slide = keyframes`
             0.0%{
                 transform: translatey(-1px);
@@ -17,14 +17,13 @@ const Avatar = props => {
                 transform: translatey(${clockRadius - (avatarDiameter - 4)}px);
             }
 `
-	// const motion = props.home
-	// 	? "animation: 'none'"
-	// 	: `animation:  ${slide} ${adjert}`
-
+	const randomRotation = Math.floor(Math.random() * 360)
 	return (
 		<div>
 			{props.home ? (
-				<AvatarHome>{props.name}</AvatarHome>
+				<AvatarHomeContainer rotation={randomRotation}>
+					<AvatarHome>{props.name}</AvatarHome>
+				</AvatarHomeContainer>
 			) : (
 				<AvatarBase
 					// motion={motion}

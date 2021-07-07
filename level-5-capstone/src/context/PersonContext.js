@@ -2,72 +2,77 @@ import React, { useState, createContext } from "react"
 
 const PersonContext = createContext()
 const PersonContextProvider = props => {
-	// const [yVal, setYVal] = useState(10)
-	const [familyStatus, setFamilyStatus] = useState([
+	const [comingBack, setComingBack] = useState([])
+	const [whereGoing, setWhereGoing] = useState()
+	const [whoIsGoing, setWhoIsGoing] = useState([])
+	const [headingOut, setHeadingOut] = useState([])
+	const [updateObj, setUpdateObj] = useState({})
+	const [timeAway, setTimeAway] = useState(5)
+	const [familyMembers, setFamilyMembers] = useState([
 		{
 			name: "Mom",
 			atHome: false,
-			location: { place: "store", rotation: 40 },
+			location: "cafe",
 			ert: 24,
 		},
 
 		{
 			name: "Elizabeth",
 			atHome: false,
-			location: { place: "gym", rotation: 90 },
+			location: "gym",
 			ert: 32,
 		},
 
 		{
 			name: "Avery",
 			atHome: false,
-			location: { place: "trail", rotation: 315 },
+			location: "trail",
 			ert: 45,
 		},
 
 		{
 			name: "Benson",
 			atHome: false,
-			location: { place: "store", rotation: 50 },
+			location: "store",
 			ert: 14,
 		},
 
 		{
 			name: "Rosalie",
 			atHome: false,
-			location: { place: "work", rotation: 135 },
+			location: "work",
 			ert: 13,
 		},
 	])
-	// const [mom, setMom] = useState({
-	// 	location: "store",
-	// 	ert: 0.5,
-	// })
-	// const [elizabeth, setElizabeth] = useState({
-	// 	location: "gym",
-	// 	ert: 0.75,
-	// })
-	// const [avery, setAvery] = useState({
-	// 	location: "trail",
-	// 	ert: 1.5,
-	// })
-	// const [benson, setBenson] = useState({
-	// 	location: "store",
-	// 	ert: 3,
-	// })
-	// const [rosalie, setRosalie] = useState({
-	// 	location: "work",
-	// 	ert: 5,
-	// })
+
 	const locations = [
-		{ place: "store", rotation: 40 },
-		{ place: "gym", rotation: 90 },
-		{ place: "trail", rotation: 315 },
-		{ place: "store", rotation: 50 },
-		{ place: "work", rotation: 135 },
+		{ location: "school" },
+		{ location: "store" },
+		{ location: "gym" },
+		{ location: "work" },
+		{ location: "downtown" },
+		{ location: "cafe" },
+		{ location: "friends" },
+		{ location: "trail" },
 	]
+
 	return (
-		<PersonContext.Provider value={{ familyStatus, locations }}>
+		<PersonContext.Provider
+			value={{
+				familyMembers,
+				setFamilyMembers,
+				locations,
+				comingBack,
+				setComingBack,
+				setWhereGoing,
+				whereGoing,
+				whoIsGoing,
+				setWhoIsGoing,
+				timeAway,
+				setTimeAway,
+				// checkInFunction,
+			}}
+		>
 			{props.children}
 		</PersonContext.Provider>
 	)

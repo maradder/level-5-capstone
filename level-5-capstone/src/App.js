@@ -1,20 +1,30 @@
-import React, { useState, useEffect, useContext } from "react"
-import { PersonContext } from "./context/PersonContext"
-import Button from "./components/Button"
-import ButtonSmall from "./components/ButtonSmall"
-import ActionButton from "./components/ActionButton"
-import ClockBody from "./components/clockFace/ClockBody"
-import { clockRadius, avatarDiameter } from "./StyledComponents"
+import React, { useContext } from "react"
+import { DisplayContext } from "./context/DisplayContext"
 import StatusScreen from "./StatusScreen"
 import WhoIsGoing from "./WhoIsGoing"
+import WhoIsCheckingIn from "./WhoIsCheckingIn"
 import WhereGoing from "./WhereGoing"
-
+import WhenBack from "./WhenBack"
+import { GlobalStyle } from "./StyledComponents"
 const App = () => {
+	const { formState } = useContext(DisplayContext)
 	return (
-		<div style={{ display: "flex", flexDirection: "row" }}>
-			<StatusScreen />
-			<WhoIsGoing />
-			<WhereGoing />
+		<div>
+			<GlobalStyle />
+
+			{formState === "status" ? (
+				<StatusScreen />
+			) : formState === "checkingIn" ? (
+				<WhoIsCheckingIn />
+			) : formState === "headingOut" ? (
+				<WhoIsGoing />
+			) : formState === "whereGoing" ? (
+				<WhereGoing />
+			) : formState === "whenBack" ? (
+				<WhenBack />
+			) : (
+				<StatusScreen />
+			)}
 		</div>
 	)
 }

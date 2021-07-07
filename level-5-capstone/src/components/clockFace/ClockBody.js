@@ -2,9 +2,8 @@ import React, { useState, useContext, useEffect } from "react"
 import HomeLogoBlk from "../../icons/home_black_24dp_black.svg"
 import { ClockBodyBase, clockRadius } from "../../StyledComponents"
 import { PersonContext } from "../../context/PersonContext"
-import Avatar from "../Avatar"
 import ClockBezel from "./ClockBezel"
-import FamilyStatus from "../FamilyStatus"
+import FamilyStatus from "../avatars/FamilyStatus"
 
 const ClockBody = props => {
 	const { familyStatus } = useContext(PersonContext)
