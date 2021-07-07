@@ -2,8 +2,6 @@ const express = require("express")
 const familyRouter = express.Router()
 const Family = require("../models/family.js")
 
-
-
 /* const family = [
     {
         "name": "Mom",
@@ -43,61 +41,62 @@ const Family = require("../models/family.js")
 ] */
 
 familyRouter.get("/", (req, res, next) => {
-    Family.find((err, family) => {
-        if (err) {
-            res.status(500)
-            return next(err)
-        }
-	res.status(200).send(family)
-})}
-)
+	Family.find((err, family) => {
+		if (err) {
+			res.status(500)
+			return next(err)
+		}
+		res.status(200).send(family)
+	})
+})
 
 familyRouter.get("/:familyId", (req, res) => {
-    Family.find((err, familyId) => {
-        if(err) {
-            res.status(500)
-            return next(err)
-        }
-        return res.status(200).send(family)
-    })
+	Family.find((err, familyMember) => {
+		if (err) {
+			res.status(500)
+			return next(err)
+		}
+		return res.status(200).send(familyMember)
+	})
 })
 
 familyRouter.post("/", (req, res, next) => {
-    const newFamily = new Family (req.body)
-    newFamily.save((err, savedFamily) => {
-        if(err) {
-            res.status(500)
-            return next(err)
-        }
-        return res.status(201).send(savedFamily)
-    })
+	const newFamily = new Family(req.body)
+	newFamily.save((err, savedFamily) => {
+		if (err) {
+			res.status(500)
+			return next(err)
+		}
+		return res.status(201).send(savedFamily)
+	})
 })
 
-
-
 familyRouter.delete("/:familyId", (req, res, next) => {
-    Family.findOneAndDelete({_id: req.params.familyId}, (err, deletedItem) => {
-        if (err) {
-            res.status(500)
-            return next(err)
-        }
-        return res.status(201).send(deletedItem)
-    })
+	Family.findOneAndDelete(
+		{ _id: req.params.familyId },
+		(err, deletedItem) => {
+			if (err) {
+				res.status(500)
+				return next(err)
+			}
+			return res.status(201).send(deletedItem)
+		}
+	)
 })
 
 familyRouter.put("/:familyId", (req, res, next) => {
-    Family.findOneAndUpdate({_id: req.params.familyId},  //find this one and update it
-        req.body, //update object with this data
-        {new: true}, //send back updated version
-        (err, updatedFamily) => {
-            if(err){
-                res.status(500)
-                return next(err)
-            }
-            return res.status(201).send(updatedFamily)
-        }) 
+	Family.findOneAndUpdate(
+		{ _id: req.params.familyId }, //find this one and update it
+		req.body, //update object with this data
+		{ new: true }, //send back updated version
+		(err, updatedFamily) => {
+			if (err) {
+				res.status(500)
+				return next(err)
+			}
+			return res.status(201).send(updatedFamily)
+		}
+	)
 })
-
-
 
 module.exports = familyRouter
