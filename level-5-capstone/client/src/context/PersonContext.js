@@ -15,7 +15,7 @@ const PersonContextProvider = props => {
 		return console.log("Initial get")
 	}
 
-	const locations = [
+	const [locations, setLocations] = useState([
 		{ location: "school" },
 		{ location: "store" },
 		{ location: "gym" },
@@ -24,7 +24,7 @@ const PersonContextProvider = props => {
 		{ location: "cafe" },
 		{ location: "friends" },
 		{ location: "trail" },
-	]
+	])
 
 	useEffect(() => {
 		getCurrentFamilyMembers()
@@ -43,6 +43,7 @@ const PersonContextProvider = props => {
 				familyMembers,
 				setFamilyMembers,
 				locations,
+				setLocations,
 				comingBack,
 				setComingBack,
 				setWhereGoing,

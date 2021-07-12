@@ -249,7 +249,6 @@ const ClockBodyBase = styled.div`
 	position: relative;
 	height: ${clockRadius * 2}px;
 	width: ${clockRadius * 2}px;
-
 	background: radial-gradient(
 		50% 50% at 50% 50%,
 		#ffdf5f 0%,
@@ -257,7 +256,7 @@ const ClockBodyBase = styled.div`
 		rgba(255, 228, 120, 0) 70%
 	);
 
-	border: 5px solid #0000099;
+	border: 5px solid #00000099;
 	box-sizing: border-box;
 	padding: 0;
 	margin: 1em auto;

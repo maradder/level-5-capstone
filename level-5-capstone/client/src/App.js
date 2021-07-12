@@ -4,6 +4,7 @@ import StatusScreen from "./StatusScreen"
 import WhoIsGoing from "./WhoIsGoing"
 import WhoIsCheckingIn from "./WhoIsCheckingIn"
 import WhereGoing from "./WhereGoing"
+import Settings from "./components/Settings"
 import WhenBack from "./WhenBack"
 import { GlobalStyle } from "./StyledComponents"
 const App = () => {
@@ -22,6 +23,8 @@ const App = () => {
 				<WhereGoing />
 			) : formState === "whenBack" ? (
 				<WhenBack />
+			) : formState === "settings" ? (
+				<Settings />
 			) : (
 				<StatusScreen />
 			)}
