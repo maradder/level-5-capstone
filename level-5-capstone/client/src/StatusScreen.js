@@ -44,9 +44,6 @@ const StatusScreen = props => {
 
 	useEffect(() => {
 		famAtHome()
-		return () => {
-			console.log("FamAtHome")
-		}
 	}, [])
 	return (
 		<Main>

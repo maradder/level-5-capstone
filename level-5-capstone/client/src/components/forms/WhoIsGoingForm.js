@@ -9,23 +9,16 @@ const WhoIsGoingForm = props => {
 	const { formState, setFormState } = useContext(DisplayContext)
 	const [clicked, setClicked] = useState({})
 
-	const handleChange = e => {
-		const { name, value } = e.target
-		whoIsGoing.indexOf(value) > -1
-			? setWhoIsGoing(whoIsGoing.filter(person => person != name))
-			: setWhoIsGoing(prevState => [...prevState, value])
-	}
-
 	const handleSubmit = e => {
 		e.preventDefault()
 		setFormState("whereGoing")
 	}
 
-	const handleClick = e => {
+	const handleClick = (e, person) => {
 		e.preventDefault()
 		const { name } = e.target
 		whoIsGoing.indexOf(name) > -1
-			? setWhoIsGoing(whoIsGoing.filter(person => person != name))
+			? setWhoIsGoing(whoIsGoing.filter(person => person !== name))
 			: setWhoIsGoing(prevState => [...prevState, name])
 		setClicked(prevState => {
 			return {
@@ -36,15 +29,29 @@ const WhoIsGoingForm = props => {
 		console.log(clicked)
 	}
 
+	// const handleClick = e => {
+	// 	e.preventDefault()
+	// 	const { name } = e.target
+	// 	setClicked(prevState => {
+	// 		return {
+	// 			...prevState,
+	// 			[name]: clicked[name] ? false : true,
+	// 		}
+	// 	})
+	// }
+	useEffect(() => {
+		console.log(clicked)
+	}, [clicked])
+
 	const renderForm = () => {
 		return (
 			<form name="whoIsGoing" id="whoIsGoingForm" onSubmit={handleSubmit}>
 				{familyMembers.map((person, index) => {
 					const personName = person.name
 					return (
-						<div key={personName}>
+						<div key={personName + person._id}>
 							<GoingButton
-								key={index}
+								key={personName + person._id}
 								personName={personName}
 								type="button"
 								clicked={clicked[personName]}

@@ -9,7 +9,10 @@ const ClockBezel = props => {
 		<>
 			{locations.map((place, index) => {
 				return (
-					<ClockFaceSegment rotation={`${degreeEach * index}deg`}>
+					<ClockFaceSegment
+						key={place.location + index.toString()}
+						rotation={`${degreeEach * index}deg`}
+					>
 						{place.location}
 					</ClockFaceSegment>
 				)

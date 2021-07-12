@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react"
+import axios from "axios"
 import { PersonContext } from "./context/PersonContext"
 import {
 	Main,
@@ -12,15 +13,22 @@ import ButtonSmall from "./components/buttons/ButtonSmall"
 import { DisplayContext } from "./context/DisplayContext"
 
 const WhenBack = props => {
-	const { whereGoing, whoIsGoing, timeAway, setTimeAway } =
-		useContext(PersonContext)
+	const {
+		whereGoing,
+		whoIsGoing,
+		setWhoIsGoing,
+		timeAway,
+		setTimeAway,
+		familyMembers,
+		setFamilyMembers,
+	} = useContext(PersonContext)
 	const { setFormState } = useContext(DisplayContext)
 
-	const [groupLeaving, setGroupLeaving] = useState({
-		people: whoIsGoing,
-		place: whereGoing,
-		ert: timeAway,
-	})
+	// const [groupLeaving, setGroupLeaving] = useState({
+	// 	people: whoIsGoing,
+	// 	place: whereGoing,
+	// 	ert: timeAway,
+	// })
 
 	const increaseIconStyle = {
 		color: timeAway >= 160 ? "#fff" : "#6D6D6D",
@@ -58,12 +66,38 @@ const WhenBack = props => {
 
 	const handleSubmit = e => {
 		e.preventDefault()
-		setGroupLeaving(prevState => {
-			return { prevState, ert: timeAway * 1.8 }
+
+		whoIsGoing.map(person => {
+			const returnedPerson = familyMembers.findIndex(
+				member => member.name === person
+			)
+
+			const source = {
+				name: person,
+				atHome: false,
+				location: whereGoing,
+				estReturnTime: timeAway * 1.8,
+			}
+
+			const target = familyMembers[returnedPerson]
+			const returnedTarget = Object.assign(target, source)
+			const remainingPersons = familyMembers.filter(
+				human => human.name !== person
+			)
+
+			axios.put(`/familymembers/${target._id}`, target)
+			return setFamilyMembers([returnedTarget, ...remainingPersons])
 		})
+		setWhoIsGoing([])
 		setFormState("status")
-		console.log(groupLeaving)
 	}
+
+	// 	setGroupLeaving(prevState => {
+	// 		return { prevState, ert: timeAway * 1.8 }
+	// 	})
+	// 	setFormState("status")
+	// 	console.log(groupLeaving)
+	// }
 
 	useEffect(() => {
 		const range = document.getElementById("range")

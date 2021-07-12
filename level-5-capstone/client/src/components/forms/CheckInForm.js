@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react"
 import { PersonContext } from "../../context/PersonContext"
 import { DisplayContext } from "../../context/DisplayContext"
 import CheckInButton from "../buttons/CheckInButton"
+import axios from "axios"
 
 const CheckInForm = props => {
 	const {
@@ -9,17 +10,17 @@ const CheckInForm = props => {
 		setFamilyMembers,
 		comingBack,
 		setComingBack,
-		checkInFunction,
+		// checkInFunction,
 	} = useContext(PersonContext)
 	const { setFormState } = useContext(DisplayContext)
 	const [clicked, setClicked] = useState({})
 
-	const handleChange = e => {
-		const { name, value } = e.target
-		comingBack.indexOf(value) > -1
-			? setComingBack(comingBack.filter(person => person != name))
-			: setComingBack(prevState => [...prevState, value])
-	}
+	// const handleChange = e => {
+	// 	const { name, value } = e.target
+	// 	comingBack.indexOf(value) > -1
+	// 		? setComingBack(comingBack.filter(person => person !== name))
+	// 		: setComingBack(prevState => [...prevState, value])
+	// }
 
 	const handleSubmit = e => {
 		e.preventDefault()
@@ -28,18 +29,21 @@ const CheckInForm = props => {
 			const returnedPerson = familyMembers.findIndex(
 				member => member.name === person
 			)
+
 			const source = {
 				name: person,
 				atHome: true,
 				location: "",
-				ert: null,
+				estReturnTime: null,
 			}
 
 			const target = familyMembers[returnedPerson]
 			const returnedTarget = Object.assign(target, source)
 			const remainingPersons = familyMembers.filter(
-				human => human.name != person
+				human => human.name !== person
 			)
+
+			axios.put(`/familymembers/${target._id}`, target)
 			return setFamilyMembers([returnedTarget, ...remainingPersons])
 		})
 		setFormState("status")
@@ -49,7 +53,7 @@ const CheckInForm = props => {
 		e.preventDefault()
 		const { name } = e.target
 		comingBack.indexOf(name) > -1
-			? setComingBack(comingBack.filter(person => person != name))
+			? setComingBack(comingBack.filter(person => person !== name))
 			: setComingBack(prevState => [...prevState, name])
 		setClicked(prevState => {
 			return {
@@ -85,12 +89,12 @@ const CheckInForm = props => {
 		)
 	}
 
-	useEffect(() => {
-		const results = renderForm()
-		return () => {
-			console.log("CheckInForm Refreshed")
-		}
-	}, [clicked])
+	// useEffect(() => {
+	// 	const results = renderForm()
+	// 	return () => {
+	// 		console.log("CheckInForm Refreshed")
+	// 	}
+	// }, [clicked])
 
 	return renderForm()
 }
