@@ -9,6 +9,7 @@ const PersonContextProvider = props => {
 	const [updateObj, setUpdateObj] = useState({})
 	const [timeAway, setTimeAway] = useState(5)
 	const [familyMembers, setFamilyMembers] = useState([])
+
 	const getCurrentFamilyMembers = () => {
 		axios.get("/familymembers").then(res => setFamilyMembers(res.data))
 		return console.log("Initial get")
@@ -34,9 +35,6 @@ const PersonContextProvider = props => {
 
 	useEffect(() => {
 		console.log(familyMembers)
-		return () => {
-			console.log("done")
-		}
 	}, [familyMembers])
 
 	return (

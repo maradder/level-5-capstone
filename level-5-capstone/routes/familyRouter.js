@@ -84,6 +84,11 @@ familyRouter.delete("/:familyId", (req, res, next) => {
 	)
 })
 
+// familyRouter.put("/", (req, res, next) => {
+// 	const arr = req.body
+// 	Family.findByIdAndUpdate({_id:{$in: arr}}, (err, ))
+// })
+
 familyRouter.put("/:familyId", (req, res, next) => {
 	Family.findOneAndUpdate(
 		{ _id: req.params.familyId }, //find this one and update it
