@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react"
-import AddUserForm from "./AddUserForm"
 import { DisplayContext } from "../context/DisplayContext"
-import AddLocationForm from "./AddLocationForm"
 import { Main, ButtonAction } from "../StyledComponents"
+import AddLocationForm from "./forms/AddLocationForm"
+import AddUserForm from "./forms/AddUserForm"
 
 const Settings = () => {
 	const { formState, setFormState } = useContext(DisplayContext)

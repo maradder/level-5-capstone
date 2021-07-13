@@ -298,7 +298,7 @@ const AvatarBase = styled.div`
 	/* transform: translateY(${props => props.yval}px); */
 	/* ${props =>
 		props.home ? "transform: translateY(110px)" : "z-index: 0"} */
-	animation: ${props => props.slide} ${props => props.adjert}s infinite;
+	animation: ${props => props.slide} ${props => props.adjert}s 1;
 	box-shadow: 2px 2px 3px #121212;
 `
 

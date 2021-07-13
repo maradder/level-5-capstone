@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react"
-import { PersonContext } from "../context/PersonContext"
-import { ButtonAction } from "../StyledComponents"
+import { PersonContext } from "../../context/PersonContext"
+import { ButtonAction } from "../../StyledComponents"
 import axios from "axios"
 
 const AddLocationForm = () => {

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react"
-import { Main, ButtonAction } from "../StyledComponents"
+import { Main, ButtonAction } from "../../StyledComponents"
 import axios from "axios"
-import { PersonContext } from "../context/PersonContext"
+import { PersonContext } from "../../context/PersonContext"
 
 const AddUserForm = props => {
 	const { familyMembers, setFamilyMembers } = useContext(PersonContext)
