@@ -24,12 +24,6 @@ const WhenBack = props => {
 	} = useContext(PersonContext)
 	const { setFormState } = useContext(DisplayContext)
 
-	// const [groupLeaving, setGroupLeaving] = useState({
-	// 	people: whoIsGoing,
-	// 	place: whereGoing,
-	// 	ert: timeAway,
-	// })
-
 	const increaseIconStyle = {
 		color: timeAway >= 160 ? "#fff" : "#6D6D6D",
 		fontSize: "48px",

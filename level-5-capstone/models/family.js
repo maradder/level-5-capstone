@@ -1,8 +1,6 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
-// familyMembers: []
-
 const familySchema = new Schema({
 	name: {
 		type: String,

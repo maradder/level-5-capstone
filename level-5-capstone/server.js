@@ -1,10 +1,7 @@
 const express = require("express")
 const app = express()
 const mongoose = require("mongoose")
-
 const morgan = require("morgan")
-
-const family = []
 
 mongoose.connect(
 	"mongodb+srv://marcus:TRojans3180@@@clock-db.vmkf5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",

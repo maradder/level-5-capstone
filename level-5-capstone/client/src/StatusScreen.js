@@ -2,11 +2,11 @@ import React, { useContext, useState, useEffect } from "react"
 import ActionButton from "./components/buttons/ActionButton"
 import { DisplayContext } from "./context/DisplayContext"
 import ClockBody from "./components/clockFace/ClockBody"
-import { Main } from "./StyledComponents"
+import { ButtonAction, Main } from "./StyledComponents"
 import { DateBanner, BannerContainer } from "./StyledComponents"
 import { PersonContext } from "./context/PersonContext"
 import HomeLogo from "./icons/home_black_24dp_black.svg"
-
+import Settings from "./components/Settings"
 const StatusScreen = props => {
 	const { setComingBack, familyMembers } = useContext(PersonContext)
 	const { setFormState } = useContext(DisplayContext)
@@ -40,6 +40,10 @@ const StatusScreen = props => {
 	const handleStartHeadOut = e => {
 		e.preventDefault()
 		setFormState("headingOut")
+	}
+	const handleViewSettings = e => {
+		e.preventDefault()
+		setFormState("settings")
 	}
 
 	useEffect(() => {
@@ -91,6 +95,9 @@ const StatusScreen = props => {
 					handleclick={handleStartCheckIn}
 					name="checkin"
 				/>
+				<ButtonAction onClick={handleViewSettings}>
+					Settings
+				</ButtonAction>
 			</div>
 		</Main>
 	)
